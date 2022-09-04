@@ -2,8 +2,8 @@ import tkinter
 
 window = tkinter.Tk()
 window.title("Miles to KM Converter")
-# window.minsize(width=250, height=100)
-window.config(padx=20, pady=20)
+window.minsize(width=250, height=100)
+window.config(padx=40, pady=20)
 
 # User Input Box
 user_input = tkinter.Entry(width=10)
