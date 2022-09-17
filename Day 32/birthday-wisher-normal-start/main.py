@@ -2,10 +2,11 @@ import datetime as dt
 import pandas
 import random
 import smtplib
+import os
 
 MY_EMAIL = "mrfrek78@gmail.com"
-MY_PASSWORD = ""
-# jzwqbvjcwoinxuye
+MY_PASSWORD = os.environ.get("EMAIL_PASS")
+
 now = dt.datetime.now()
 today = (now.month, now.day)
 
@@ -17,7 +18,6 @@ if today in birthdays_dict:
     file_path = f"letter_templates/letter_{random.randint(1,3)}.txt"
     with open(file_path) as letter_file:
         contents = letter_file.read()
-        # print(birthday_person["name"])
         contents = contents.replace("[NAME]", birthday_person["name"])
 
     with smtplib.SMTP("smtp.gmail.com") as connection:
@@ -25,7 +25,7 @@ if today in birthdays_dict:
         connection.login(MY_EMAIL, MY_PASSWORD)
         connection.sendmail(
             from_addr=MY_EMAIL,
-            to_addrs=MY_PASSWORD,
+            to_addrs=birthday_person["email"],
             msg=f"Subject:Happy Birthday\n\n{contents}"
         )
 
