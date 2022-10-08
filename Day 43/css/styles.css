@@ -1,0 +1,21 @@
+h1 {
+  color: red;
+  font-size: 200px;
+}
+
+/*
+img {
+  background-color: red;
+}
+*/
+
+
+/************************** SELECTOR ***********************/
+
+.bacon {
+  background-color: red;
+}
+
+.burger{
+  background-color: green;
+}
