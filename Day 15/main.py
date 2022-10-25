@@ -49,7 +49,7 @@ def process_coins():
     return total
 
 
-def transaction(money_received,drink_cost):
+def transaction(money_received, drink_cost):
     if money_received >= drink_cost:
         change = round(money_received - drink_cost, 2)
         print(f"Here is ${change} in change.")
